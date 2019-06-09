@@ -1,22 +1,28 @@
 <template>
   <div id="admin">
 
+<!--    <el-row>-->
+<!--      <el-col :span="24">-->
+<!--        <p class="cP" style="background-color:#F5F5F5; margin-top: -7px; ">-->
+
+<!--          <el-link icon="el-icon-s-home" style="margin-left: 10px;">主页</el-link>-->
+
+
+<!--        </p>-->
+<!--      </el-col>-->
+<!--    </el-row>-->
     <el-row>
       <el-col :span="24">
-        <p class="cP" style="background-color:#F5F5F5; margin-top: -7px; ">
-          <el-button style="margin-left: 5px;" icon="el-icon-s-operation"
-                     @click="change(),changeAsideWidth()"></el-button>
-          <el-link icon="el-icon-s-home" style="margin-left: 10px;">主页</el-link>
 
-
-        </p>
       </el-col>
     </el-row>
     <el-row>
       <el-col :span="24">
         <el-container>
-          <el-aside :width="asideWidth">
 
+          <el-aside :width="asideWidth" style="position: fixed">
+            <el-button style="margin-left: 5px;" icon="el-icon-s-operation"
+                       @click="change()"></el-button>
             <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse" :collapse-transition=false>
 
               <el-menu-item index="1" @click="clickUserM()">
@@ -63,7 +69,7 @@
     data() {
       return {
         isCollapse: true,
-        asideWidth: "100px",
+        asideWidth: "200px",
         currentView: "UserContent"
       };
     },

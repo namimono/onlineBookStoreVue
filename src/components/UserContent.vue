@@ -1,6 +1,6 @@
 <template>
 	<div id="usercontent">
-		
+
 		this is usercontent.
 		<br />
 	</div>
@@ -9,5 +9,9 @@
 <script>
 </script>
 
-<style>
+<style scoped>
+  div{
+    margin-left: 150px;
+    list-style: none;
+  }
 </style>
