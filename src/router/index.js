@@ -8,13 +8,21 @@ import Admin from '../views/admin-view/AdminView.vue'
 import Announcement from '../views/announcement-view/AnnouncementView.vue'
 import MainView from '../views/main-view/MainView.vue'
 import RankView from '../views/rank-view/RankView.vue'
+import AnnonceContent from '../views/admin-view/children-view/AnnonceContentView.vue'
+import UserContentView from '../views/admin-view/children-view/UserContentView.vue'
+import AdvertiseContentView from '../views/admin-view/children-view/AdvertiseContentView.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
     {
       path: '/adminView',
-      component: Admin
+      component: Admin,
+      children:[
+        {path:'announceContentView',component: AnnonceContent},
+        {path:'UserContentView',component: UserContentView},
+        {path:'AdvertiseContentView',component: AdvertiseContentView},
+      ]
     },
     {
       path: '/announcementView/:id',

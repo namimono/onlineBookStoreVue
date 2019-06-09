@@ -58,7 +58,7 @@
 </template>
 
 <script>
-  import AnnonceContentEl from './AnnonceContentEl.vue'
+  import AnnonceContentEl from '../../../components/AdminViewComponents/AnnonceContentEl.vue'
 
   export default {
     created() {
@@ -83,7 +83,7 @@
       },
       newAnno(){
         this.$router.push({
-          path:'/'
+          path:'/adminView/EditAnnoncementView'
         })
       }
     },

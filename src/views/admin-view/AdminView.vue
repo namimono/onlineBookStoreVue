@@ -48,7 +48,7 @@
             </el-menu>
           </el-aside>
           <el-main>
-            <component :is="currentView"></component>
+            <router-view></router-view>
           </el-main>
 
         </el-container>
@@ -60,9 +60,6 @@
 </template>
 
 <script>
-  import AnnonceContent from "../../components/AdminViewComponents/AnnonceContent.vue"
-  import AdvertiseContent from "../../components/AdminViewComponents/AdvertiseContent.vue"
-  import UserContent from "../../components/AdminViewComponents/UserContent.vue"
 
   export default {
     name: "Admin",
@@ -70,18 +67,25 @@
       return {
         isCollapse: true,
         asideWidth: "200px",
-        currentView: "UserContent"
       };
     },
     methods: {
       clickUserM() {
-        this.currentView = "UserContent";
+        this.$router.push({
+          path:'/adminView/UserContentView'
+        })
+
       },
       clickAdvM() {
-        this.currentView = "AdvertiseContent";
+        this.$router.push({
+          path:'/adminView/AdvertiseContentView'
+        })
       },
       clickAnnM() {
-        this.currentView = "AnnonceContent";
+        // this.currentView = "AnnonceContent";
+        this.$router.push({
+          path:'/adminView/announceContentView'
+        })
       },
       change() {
         this.isCollapse = !this.isCollapse;
@@ -96,9 +100,6 @@
       }
     },
     components: {
-      AnnonceContent,
-      AdvertiseContent,
-      UserContent
     }
   }
 </script>
