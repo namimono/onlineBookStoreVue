@@ -10,7 +10,7 @@
 
             <el-col :span="24" >
               <el-tag type="info" >{{element.type}}</el-tag>
-              <el-link href="#" target="_blank" style="font-size: 20px">{{element.title}}</el-link>
+              <el-link :href="toAnnouncementUrl" target="_blank" style="font-size: 20px">{{element.title}}</el-link>
 
             </el-col>
           </el-row>
@@ -43,7 +43,7 @@
 	export default{
 		data(){
 			return{
-
+        toAnnouncementUrl:'toAnnouncement?id='+this.element.annoId
 
 			}
 		},
