@@ -4,10 +4,10 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Admin from '../views/AdminView.vue'
-import Announcement from '../views/AnnouncementView.vue'
-import MainView from '../views/MainView.vue'
-import RankView from '../views/RankView.vue'
+import Admin from '../views/admin-view/AdminView.vue'
+import Announcement from '../views/announcement-view/AnnouncementView.vue'
+import MainView from '../views/main-view/MainView.vue'
+import RankView from '../views/rank-view/RankView.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({

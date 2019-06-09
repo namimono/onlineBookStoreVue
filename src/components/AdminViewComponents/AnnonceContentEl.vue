@@ -25,8 +25,8 @@
           </el-row>
           <el-row>
             <el-col :span="24">
-              <el-button class="edit-btn" type="danger" icon="el-icon-delete" style="float: right;"  size="medium "round>删除</el-button>
-              <el-button class="edit-btn" type="primary" icon="el-icon-edit" style="float: right;" size="medium "round>编辑</el-button>
+              <el-button class="edit-btn" type="danger" icon="el-icon-delete" style="float: right;"  size="medium "round plain>删除</el-button>
+              <el-button class="edit-btn" type="primary" icon="el-icon-edit" style="float: right;" size="medium "round plain>编辑</el-button>
             </el-col>
 
           </el-row>
@@ -56,6 +56,6 @@
 
 <style>
 	.ann-el{
-		padding-top: 40px;
+		margin-bottom: 40px;
 	}
 </style>
