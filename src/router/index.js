@@ -7,7 +7,7 @@ import VueRouter from 'vue-router'
 import Admin from '../views/AdminView.vue'
 import Announcement from '../views/AnnouncementView.vue'
 import MainView from '../views/MainView.vue'
-
+import RankView from '../views/RankView.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -17,13 +17,17 @@ export default new VueRouter({
       component: Admin
     },
     {
-      path: '/announcementView',
+      path: '/announcementView/:id',
       component: Announcement
 
     },
     {
       path: '/mainView',
       component: MainView
+    },
+    {
+      path:'/rankView',
+      component:RankView
     },
     {
       path: '/',

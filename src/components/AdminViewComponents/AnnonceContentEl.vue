@@ -10,7 +10,8 @@
 
             <el-col :span="24" >
               <el-tag type="info" >{{element.type}}</el-tag>
-              <el-link :href="toAnnouncementUrl" target="_blank" style="font-size: 20px">{{element.title}}</el-link>
+<!--              <el-link :href="toAnnouncementUrl" target="_blank" style="font-size: 20px">{{element.title}}</el-link>-->
+              <router-link tag="el-link" :to="toAnnouncementUrl" style="font-size: 20px"> {{element.title}}</router-link>
 
             </el-col>
           </el-row>
@@ -43,7 +44,8 @@
 	export default{
 		data(){
 			return{
-        toAnnouncementUrl:'toAnnouncement?id='+this.element.annoId
+        // toAnnouncementUrl:'toAnnouncement?id='+this.element.annoId
+        toAnnouncementUrl:'/announcementView/'+this.element.annoId
 
 			}
 		},

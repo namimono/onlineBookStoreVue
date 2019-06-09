@@ -4,7 +4,7 @@
           <div style="margin-top: -10px">
             <router-link tag="el-link" class="el-icon-s-home " to="/mainView" style="margin-top: 2px">主页</router-link>
             <router-link class="test" tag="el-link"  to="/adminView">管理</router-link>
-            <router-link class="test" tag="el-link"   to="/announcementView">公告</router-link>
+            <router-link class="test" tag="el-link"   to="/rankView">排行榜</router-link>
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
 
           </div>

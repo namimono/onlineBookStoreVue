@@ -25,7 +25,7 @@
 		},
 		methods:{
 			getAnnounce(){
-				this.$http.get('http://localhost:8081/onlineBookStore/getAllAnnoucenments',{firstName: 'Fred',
+				this.$http.get('http://localhost:8080/onlineBookStore/getAllAnnoucenments',{firstName: 'Fred',
 					lastName: 'Flintstone'}).then((response)=>{
 						this.annouces=response.data
 

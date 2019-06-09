@@ -60,9 +60,9 @@
 </template>
 
 <script>
-  import AnnonceContent from "../components/AnnonceContent.vue"
-  import AdvertiseContent from "../components/AdvertiseContent.vue"
-  import UserContent from "../components/UserContent.vue"
+  import AnnonceContent from "../components/AdminViewComponents/AnnonceContent.vue"
+  import AdvertiseContent from "../components/AdminViewComponents/AdvertiseContent.vue"
+  import UserContent from "../components/AdminViewComponents/UserContent.vue"
 
   export default {
     name: "Admin",
