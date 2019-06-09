@@ -4,18 +4,18 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Admin from  '../views/Admin.vue'
-import Announcement from  '../views/Announcement.vue'
+import Admin from '../views/AdminView.vue'
+import Announcement from '../views/AnnouncementView.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes:[
     {
-      path:'/admin',
+      path:'/adminView',
       component:Admin
     },
     {
-      path: '.announcement',
+      path: '/announcementView',
       component: Announcement
 
     }

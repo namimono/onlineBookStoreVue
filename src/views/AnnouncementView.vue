@@ -4,10 +4,10 @@
   </div>
 </template>
 
-<script>s
-    export default {
-        name: "Announcement"
-    }
+<script>
+  export default {
+    name: "Announcement"
+  }
 </script>
 
 <style scoped>
