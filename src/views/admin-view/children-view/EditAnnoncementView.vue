@@ -54,16 +54,16 @@
 
   export default {
     name: "EditAnnoncementView",
-    mounted(){
+    mounted() {
       this.initPage();
     },
     data() {
       return {
         id: this.$route.params.id,
-        isUpdate:false,
-        isCreate:true,
+        isUpdate: false,
+        isCreate: true,
         contentObj: {
-          content: '', title: '', type: '通知', id: ''
+          content: '', title: '', type: '通知', annoId: ''
         }
       }
 
@@ -86,8 +86,8 @@
           // this.$qs.stringify(this.contentObj),
           // {param:"中文"}
         ).then((response) => {
-          console.log(response.data)
-          if(response.data=="success"){
+          console.log(response.data);
+          if (response.data == "success") {
             this.$message.success('添加成功');
 
           }
@@ -113,29 +113,30 @@
       initPage() {
 
         if (this.id > -1) {
-          this.isUpdate=true;
-          this.isCreate=false;
+          this.isUpdate = true;
+          this.isCreate = false;
           this.$http.get("http://localhost:8080/onlineBookStore/announcement/" + this.id).then((response) => {
             console.log(response.data)
 
-            this.contentObj.id = response.data.id
+            this.contentObj.annoId = response.data.annoId
             this.contentObj.title = response.data.title
             this.contentObj.type = response.data.type
             this.contentObj.content = response.data.content
           })
         }
       },
-      update(){
-        var url = "http://localhost:8080/onlineBookStore/announcement/"+this.id
+      update() {
+        console.log(this.contentObj.annoId)
+        var url = "http://localhost:8080/onlineBookStore/announcement/" + this.contentObj.annoId
         this.$http.put(
           url,
           this.contentObj
           // [{title:"中俄我",content:"aaaaa"},{title:"中我",content:"bbbbbbb"}]
           // this.$qs.stringify(this.contentObj),
           // {param:"中文"}
-        ).then((response)=> {
+        ).then((response) => {
           console.log(response.data);
-          if(response.data=="success"){
+          if (response.data == "success") {
             this.$message.success('修改成功');
           }
 
