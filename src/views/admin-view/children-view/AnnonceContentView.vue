@@ -11,7 +11,7 @@
       </el-col>
     </el-row>
     <el-row class="row-marg-lf">
-      <el-col :span="17">
+      <el-col :span="16">
         <p/>
       </el-col>
       <el-col :span="1">
@@ -92,12 +92,12 @@
 </script>
 <style>
   .ann-ul {
-    margin-left: 150px;
+    /*margin-left: 150px;*/
     list-style: none;
   }
 
   .row-marg-lf {
-    margin-left: 200px
+    margin-left: 350px
 
   }
   .el-dropdown-link {

@@ -8,7 +8,8 @@
 
           <el-row>
             <el-col :span="1">
-              <h4 style="padding-top: 50%">{{element.annoId}}</h4>
+              <i class="el-icon-d-caret" style="padding-top: 50px"></i>
+<!--              <h4 style="padding-top: 50%">{{element.annoId}}</h4>-->
             </el-col>
             <el-col :span="23">
               <el-row>
