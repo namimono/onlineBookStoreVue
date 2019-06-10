@@ -1,6 +1,11 @@
 <template>
   <div id="announcement">
-    {{announcement.content}}
+    <el-row>
+      <el-col :span="24" style="padding-left: 100px;padding-right: 100px;">
+        <p v-html="announcement.content" ></p>
+      </el-col>
+    </el-row>
+
   </div>
 </template>
 

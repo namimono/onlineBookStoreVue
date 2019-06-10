@@ -80,7 +80,7 @@
       },
       newAnno(){
         this.$router.push({
-          path:'/adminView/EditAnnoncementView'
+          path:'/adminView/EditAnnoncementView/-1'
         })
       }
     },

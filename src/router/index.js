@@ -23,7 +23,7 @@ export default new VueRouter({
         {path:'announceContentView',component: AnnonceContent},
         {path:'UserContentView',component: UserContentView},
         {path:'AdvertiseContentView',component: AdvertiseContentView},
-        {path:'EditAnnoncementView',component: EditAnnoncementView},
+        {path:'EditAnnoncementView/:id',component: EditAnnoncementView},
       ]
     },
     {
