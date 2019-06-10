@@ -1,7 +1,7 @@
 <template>
 	<div id="usercontent">
 
-		this is usercontent.
+		this is usermanage view.
 		<br />
 	</div>
 </template>

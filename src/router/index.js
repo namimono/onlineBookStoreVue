@@ -11,6 +11,7 @@ import RankView from '../views/rank-view/RankView.vue'
 import AnnonceContent from '../views/admin-view/children-view/AnnonceContentView.vue'
 import UserContentView from '../views/admin-view/children-view/UserContentView.vue'
 import AdvertiseContentView from '../views/admin-view/children-view/AdvertiseContentView.vue'
+import EditAnnoncementView from '../views/admin-view/children-view/EditAnnoncementView.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -22,6 +23,7 @@ export default new VueRouter({
         {path:'announceContentView',component: AnnonceContent},
         {path:'UserContentView',component: UserContentView},
         {path:'AdvertiseContentView',component: AdvertiseContentView},
+        {path:'EditAnnoncementView',component: EditAnnoncementView},
       ]
     },
     {

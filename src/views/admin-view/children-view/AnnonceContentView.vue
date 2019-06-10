@@ -11,13 +11,13 @@
       </el-col>
     </el-row>
     <el-row class="row-marg-lf">
-      <el-col :span="15">
+      <el-col :span="17">
         <p/>
       </el-col>
-      <el-col :span="2">
+      <el-col :span="1">
         <el-dropdown trigger="click">
         <span class="el-dropdown-link">
-          按类型排序<i class="el-icon-arrow-down el-icon--right"></i>
+          类型<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item icon="el-icon-plus">通知</el-dropdown-item>
@@ -28,7 +28,7 @@
         </el-dropdown>
 
       </el-col>
-      <el-col :span="2">
+      <el-col :span="1">
         <el-dropdown trigger="click">
           <span class="el-dropdown-link">
             排序<i class="el-icon-arrow-down el-icon--right"></i>
@@ -72,10 +72,7 @@
     },
     methods: {
       getAnnounce() {
-        this.$http.get('http://localhost:8080/onlineBookStore/getAllAnnoucenments', {
-          firstName: 'Fred',
-          lastName: 'Flintstone'
-        }).then((response) => {
+        this.$http.get('http://localhost:8080/onlineBookStore/getAllAnnoucenments').then((response) => {
           this.annouces = response.data
 
 
