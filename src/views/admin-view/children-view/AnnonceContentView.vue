@@ -73,6 +73,7 @@
     methods: {
       getAnnounce() {
         this.$http.get('http://localhost:8080/onlineBookStore/getAllAnnoucenments').then((response) => {
+          console.log(response.data)
           this.annouces = response.data
 
 
