@@ -12,6 +12,7 @@ import AnnonceContent from '../views/admin-view/children-view/AnnonceContentView
 import UserContentView from '../views/admin-view/children-view/UserContentView.vue'
 import AdvertiseContentView from '../views/admin-view/children-view/AdvertiseContentView.vue'
 import EditAnnoncementView from '../views/admin-view/children-view/EditAnnoncementView.vue'
+import EditAdvertiseView from '../views/admin-view/children-view/EditAdvertiseView.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -24,6 +25,7 @@ export default new VueRouter({
         {path:'UserContentView',component: UserContentView},
         {path:'AdvertiseContentView',component: AdvertiseContentView},
         {path:'EditAnnoncementView/:id',component: EditAnnoncementView},
+        {path:'EditAdvertiseView/:id',component:EditAdvertiseView}
       ]
     },
     {

@@ -3,7 +3,7 @@
     <transition name="el-zoom-in-center">
       <div v-show="show2">
 
-        <el-card shadow="hover" class="box-card" style="width: 800px; height:160px;">
+        <el-card shadow="hover" class="box-card" style="width: 800px; height:200px;">
 
 
           <el-row>
@@ -13,20 +13,39 @@
             </el-col>
             <el-col :span="23">
               <el-row>
+                <el-col :span="6">
 
-                <el-col :span="24">
-                  <el-tag type="info">{{element.type}}</el-tag>
-                  <!--              <el-link :href="toAnnouncementUrl" target="_blank" style="font-size: 20px">{{element.title}}</el-link>-->
-                  <router-link tag="el-link" :to="toAnnouncementUrl" style="font-size: 20px"> {{element.title}}
-                  </router-link>
+                  <el-tag type="info">广告位置:{{element.location}}</el-tag>
+                </el-col>
+                <el-col :span="18">
+                  <p style="margin: 0px;padding-top: 3px"> 图片路径：{{element.picUrl}}</p>
 
                 </el-col>
               </el-row>
               <el-row>
 
 
-                <el-col :span="24">
-                  <h5 style="color: #959595;">{{element.uploadTime}}</h5>
+                <el-col :span="6">
+                  <h5 style="color: #959595;">{{element.lastMdfTime}}</h5>
+                </el-col>
+                <el-col :span="18">
+                  <!-- /static/advMysql.jpg-->
+<!--                  <div style="position:relative;width:100px;height:100px;">-->
+                    <el-image v-bind:class="{ real: isReal,fade:isfade}" @mouseover="toFade()" @mouseout="toReal()"
+                              style="width: 500px; height: 70px" :src="element.picUrl" fit="cover"></el-image>
+<!--                    <div v-if="textShow" style="position:absolute;width:100px;height:100px;z-indent:2;left:230px;top:25px;">-->
+<!--                      文字-->
+<!--                    </div>-->
+<!--                  </div>-->
+                </el-col>
+
+              </el-row>
+              <el-row>
+                <el-col :span="12">
+                  <p/>
+                </el-col>
+                <el-col :span="12">
+                  <el-link :href="element.url">广告链接:{{element.url}}</el-link>
                 </el-col>
 
               </el-row>
@@ -63,19 +82,29 @@
     },
     data() {
       return {
-        // toAnnouncementUrl:'toAnnouncement?id='+this.element.annoId
-        toAnnouncementUrl: '/announcementView/' + this.element.annoId,
-        // toAnnouncementEditView: '/adminView/editAnnouncementView/' + this.element.annoId,
-        show2: false
+        show2: false,
+        isReal: true,
+        isfade: false,
+        textShow:false
       }
     },
     methods: {
       edit() {
         this.$router.push({
-          path: '/adminView/EditAnnoncementView/' + this.element.annoId
+          path: '/adminView/EditAdvertiseView/' + this.element.advId
         });
 
 
+      },
+      toFade() {
+        this.isReal = false
+        this.isfade = true
+        this.textShow=true
+      },
+      toReal() {
+        this.isfade = false
+        this.isReal = true
+        this.textShow=false
       }
     },
     props: ['element']
@@ -91,4 +120,11 @@
   /*.edit-btn{*/
   /*  margin-bottom: 2px;*/
   /*}*/
+  .real {
+
+  }
+
+  .fade {
+    opacity: 0.4;
+  }
 </style>

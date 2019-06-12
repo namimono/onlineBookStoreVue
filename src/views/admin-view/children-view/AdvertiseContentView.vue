@@ -5,7 +5,7 @@
         <p></p>
       </el-col>
       <el-col :span="2">
-        <el-button type="primary" @click="newAnno()">新建公告</el-button>
+        <el-button type="primary" @click="newAdv()">添加广告</el-button>
       </el-col>
     </el-row>
     <el-row class="row-marg-lf">
@@ -44,7 +44,7 @@
       <el-col :span="24">
         <ul class="ann-ul">
           <li v-for="item in advertises">
-<!--            <AnnonceContentEl :element="item"/>-->
+            <AdvertiseContentEl :element="item"/>
           </li>
         </ul>
       </el-col>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+  import AdvertiseContentEl from '../../../components/AdminViewComponents/AdvertiseContentEl.vue'
   export default {
     created() {
       this.getAdvertises();
@@ -67,11 +68,20 @@
       getAdvertises(){
         this.$http.get('http://localhost:8080/onlineBookStore/getAllAdvertise').then((response) => {
           console.log(response.data)
-          this.annouces = response.data
+          this.advertises = response.data
 
 
         })
+      },
+      newAdv(){
+        this.$router.push({
+          path:'/adminView/EditAdvertiseView/-1'
+
+        })
       }
+    },
+    components:{
+      AdvertiseContentEl
     }
   }
 </script>
