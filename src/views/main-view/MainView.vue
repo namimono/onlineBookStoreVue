@@ -140,7 +140,7 @@
   export default {
     name: "MainView",
     created() {
-      var url = "http://localhost:8080/onlineBookStore/getAllAdvertise"
+      var url = "onlineBookStore/getAllAdvertise"
       this.$http.get(
         url
       ).then((response) => {
