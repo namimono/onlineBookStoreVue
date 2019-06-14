@@ -8,7 +8,6 @@
         <el-carousel indicator-position="outside" height="250px">
           <el-carousel-item v-for="item in carouselAdv" :key="item.advId">
             <a target="_blank" :href="item.url">
-
               <el-image :src="item.picUrl"></el-image>
             </a>
           </el-carousel-item>
