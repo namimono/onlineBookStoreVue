@@ -66,7 +66,7 @@
     },
     methods:{
       getAdvertises(){
-        this.$http.get('onlineBookStore/getAllAdvertise').then((response) => {
+        this.$http.get('getAllAdvertise').then((response) => {
           console.log(response.data)
           this.advertises = response.data
 

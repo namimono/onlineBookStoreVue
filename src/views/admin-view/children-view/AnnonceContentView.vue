@@ -72,7 +72,7 @@
     },
     methods: {
       getAnnounce() {
-        this.$http.get('onlineBookStore/getAllAnnoucenments').then((response) => {
+        this.$http.get('getAllAnnoucenments').then((response) => {
           console.log(response.data)
           this.annouces = response.data
 

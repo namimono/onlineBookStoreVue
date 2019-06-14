@@ -24,7 +24,7 @@
     methods: {
       getAnnounceContent(){
 
-        this.$http.get("onlineBookStore/announcement/"+this.id).then((response)=>{
+        this.$http.get("announcement/"+this.id).then((response)=>{
           console.log(response.data)
           this.announcement=response.data
 

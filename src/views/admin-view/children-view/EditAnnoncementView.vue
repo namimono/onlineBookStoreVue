@@ -78,7 +78,7 @@
     // },
     methods: {
       commit() {
-        var url = "onlineBookStore/announcement"
+        var url = "announcement"
         this.$http.post(
           url,
           this.contentObj
@@ -115,7 +115,7 @@
         if (this.id > -1) {
           this.isUpdate = true;
           this.isCreate = false;
-          this.$http.get("onlineBookStore/announcement/" + this.id).then((response) => {
+          this.$http.get("announcement/" + this.id).then((response) => {
             console.log(response.data)
 
             this.contentObj.annoId = response.data.annoId
@@ -127,7 +127,7 @@
       },
       update() {
         console.log(this.contentObj.annoId)
-        var url = "onlineBookStore/announcement/" + this.contentObj.annoId
+        var url = "announcement/" + this.contentObj.annoId
         this.$http.put(
           url,
           this.contentObj

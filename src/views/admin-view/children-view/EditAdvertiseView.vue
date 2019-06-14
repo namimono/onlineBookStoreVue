@@ -123,7 +123,7 @@
         if (this.id > -1) {
           this.isUpdate = true;
           this.isCreate = false;
-          this.$http.get("onlineBookStore/advertise/" + this.id).then((response) => {
+          this.$http.get("advertise/" + this.id).then((response) => {
             console.log(response.data)
 
             this.contentObj.advId = response.data.advId
