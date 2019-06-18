@@ -53,7 +53,7 @@
                 <el-col :span="24">
                   <el-button class="edit-btn" type="danger" icon="el-icon-delete" style="float: right;" size="medium "
                              round
-                             plain>删除
+                             plain @click="del()">删除
                   </el-button>
                   <el-button class="edit-btn" type="primary" icon="el-icon-edit" style="float: right;" size="medium "
                              round
@@ -95,6 +95,18 @@
         });
 
 
+      },
+      del(){
+        console.log("删除")
+        var url="http://localhost:8080/onlineBookStore/advertise/"+this.element.advId
+        this.$http.delete(
+          url
+        ).then(response=>{
+          console.log(response.data)
+
+          this.$router.go(0)
+
+        })
       },
       toFade() {
         this.isReal = false
