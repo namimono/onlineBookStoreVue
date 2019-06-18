@@ -98,7 +98,7 @@
       },
       del(){
         console.log("删除")
-        var url="http://localhost:8080/onlineBookStore/advertise/"+this.element.advId
+        var url="advertise/"+this.element.advId
         this.$http.delete(
           url
         ).then(response=>{
