@@ -7,6 +7,7 @@
 
 
           <el-row>
+
             <el-col :span="1">
               <i class="el-icon-d-caret" style="padding-top: 50px"></i>
               <!--              <h4 style="padding-top: 50%">{{element.annoId}}</h4>-->
@@ -32,9 +33,9 @@
               </el-row>
               <el-row>
                 <el-col :span="24">
-                  <el-button class="edit-btn" type="danger" icon="el-icon-delete" style="float: right;" size="medium "
+                  <el-button @click="delAn()" class="edit-btn" type="danger" icon="el-icon-delete" style="float: right;" size="medium "
                              round
-                             plain>删除
+                             plain >删除
                   </el-button>
                   <el-button class="edit-btn" type="primary" icon="el-icon-edit" style="float: right;" size="medium "
                              round
@@ -76,8 +77,21 @@
         });
 
 
-      }
+      },
+      //http://localhost:8080/onlineBookStore/announcement
+      delAn(){
+        var url='http://localhost:8080/onlineBookStore/announcement/'+this.element.annoId;
+        this.$http.delete(
+          url,
+        ).then(response=>{
+          console.log(response.data)
+          this.$router.go(0)
+
+        })
+
+      },
     },
+
     props: ['element']
 
   }
