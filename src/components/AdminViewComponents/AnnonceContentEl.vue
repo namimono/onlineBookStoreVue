@@ -80,6 +80,7 @@
       },
       //http://localhost:8080/onlineBookStore/announcement
       delAn(){
+        confirm()
         var url='http://localhost:8080/onlineBookStore/announcement/'+this.element.annoId;
         this.$http.delete(
           url,

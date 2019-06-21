@@ -177,9 +177,11 @@
           if (value.location == "carousel") {
             this.carouselAdv.push(value)
 
-          } else if (value.location == "middle") {
+          }
+          if (value.location == "middle") {
             this.middleAdv=value
-          } else (value.location == "tail")
+          }
+          if(value.location == "tail")
           {
             this.tailAdv=value
           }
