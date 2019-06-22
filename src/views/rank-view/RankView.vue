@@ -109,7 +109,7 @@
       getRank() {
         console.log(this.srcData)
 
-        var url = "http://localhost:8080/onlineBookStore/getRank/"
+        var url = "getRank"
         this.$http.post(
           url,
           this.srcData
