@@ -138,6 +138,7 @@
           console.log(response.data);
           if (response.data == "success") {
             this.$message.success('修改成功');
+
           }
 
         })

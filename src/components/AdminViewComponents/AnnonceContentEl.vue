@@ -80,14 +80,36 @@
       },
       //http://localhost:8080/onlineBookStore/announcement
       delAn(){
-        var url='announcement/'+this.element.annoId;
-        this.$http.delete(
-          url,
-        ).then(response=>{
-          console.log(response.data)
-          this.$router.go(0)
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          var url='http://localhost:8080/onlineBookStore/announcement/'+this.element.annoId;
+          this.$http.delete(
+            url,
+          ).then(response=>{
 
-        })
+            console.log(response.data)
+            this.$router.go(0)
+
+          })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+
+        // var url='http://localhost:8080/onlineBookStore/announcement/'+this.element.annoId;
+        // this.$http.delete(
+        //   url,
+        // ).then(response=>{
+        //
+        //   console.log(response.data)
+        //   this.$router.go(0)
+        //
+        // })
 
       },
     },
