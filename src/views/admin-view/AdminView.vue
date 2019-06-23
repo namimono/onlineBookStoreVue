@@ -41,9 +41,9 @@
                 <i class="el-icon-money"></i>
                 <span slot="title">财务管理</span>
               </el-menu-item>
-              <el-menu-item index="5">
-                <i class="el-icon-notebook-1"></i>
-                <span slot="title">电子书管理</span>
+              <el-menu-item index="5" @click="clickRecM()">
+                <i class="el-icon-notebook-1" ></i>
+                <span slot="title">推荐作品管理</span>
               </el-menu-item>
             </el-menu>
           </el-aside>
@@ -85,6 +85,11 @@
         // this.currentView = "AnnonceContent";
         this.$router.push({
           path:'/adminView/announceContentView'
+        })
+      },
+      clickRecM() {
+        this.$router.push({
+          path:'/adminView/RecommendContentView'
         })
       },
       change() {
