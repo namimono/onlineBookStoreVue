@@ -89,7 +89,7 @@
       },
       methods:{
         searchUser(){
-          var url="http://localhost:8080/onlineBookStore/getUserRecommend/"+this.id
+          var url="getUserRecommend/"+this.id
           this.$http.get(
               url
           ).then(response=>{
@@ -106,7 +106,7 @@
         },
 
         onSubmit(){
-          var url="http://localhost:8080/onlineBookStore/generateRecommend/"+this.id
+          var url="generateRecommend/"+this.id
           this.$http.get(
             url
           ).then(response=>{
