@@ -159,30 +159,20 @@
       }
     },
     methods: {
-      // test() {
-      //   this.carouselAdv.push({
-      //     liveTime: 'wwwwwwwwwwwwwwwwwwwww',
-      //     location: '',
-      //     lastMdfTime: 'aaaa',
-      //     advId: 3,
-      //     picUrl: '',
-      //     url: ''
-      //   })
-      //   console.log(this.carouselAdv)
-      //
-      // },
       addAdv(data) {
         data.forEach(value => {
-          console.log("addAve()遍历值" + value.location)
-          if (value.location == "carousel") {
+          if (value.location === '1') {
+            console.log("addAve()遍历值" + value.location)
             this.carouselAdv.push(value)
-
           }
-          if (value.location == "middle") {
+
+          if (value.location === '2') {
+            console.log("addAve()遍历值" + value.location)
             this.middleAdv=value
           }
-          if(value.location == "tail")
+          if(value.location === '3')
           {
+            console.log("addAve()遍历值" + value.location)
             this.tailAdv=value
           }
         })

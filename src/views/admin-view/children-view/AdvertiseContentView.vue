@@ -68,6 +68,20 @@
       getAdvertises(){
         this.$http.get('http://localhost:8080/onlineBookStore/getAllAdvertise').then((response) => {
           console.log(response.data)
+          response.data.forEach((item,index,array)=>{
+            if (item.location === '1'){
+              item.location = '首图'
+            }
+            if (item.location === '2'){
+              item.location = '中间图'
+            }
+
+            if (item.location === '3'){
+              item.location = '尾图'
+
+            }
+          })
+
           this.advertises = response.data
 
 

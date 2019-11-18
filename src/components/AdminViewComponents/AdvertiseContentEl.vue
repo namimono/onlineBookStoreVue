@@ -18,7 +18,7 @@
                   <el-tag type="info">广告位置:{{element.location}}</el-tag>
                 </el-col>
                 <el-col :span="18">
-                  <p style="margin: 0px;padding-top: 3px"> 图片路径：{{element.picUrl}}</p>
+<!--                  <p style="margin: 0px;padding-top: 3px"> 图片路径：{{element.picUrl}}</p>-->
 
                 </el-col>
               </el-row>

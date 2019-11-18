@@ -1,18 +1,15 @@
 <template>
-  <div id="editannoncementview">
-    <form action="updateAdvertise" method="post" style="margin-left: 300px" enctype="multipart/form-data">
-<!--      <input type="text" name="url"/>-->
-<!--      <input type="text" name="picUrl"/>-->
-<!--      <input type="text" name="location"/>-->
-<!--      <input type="text" name="advId"/>-->
-<!--      <input type="submit" value="tijiao"/>-->
+  <div id="editaadvertiseview">
+    <form style="margin-left: 20px">
+      <!--      <input type="text" name="url"/>-->
+      <!--      <input type="text" name="picUrl"/>-->
+      <!--      <input type="text" name="location"/>-->
+      <!--      <input type="text" name="advId"/>-->
+      <!--      <input type="submit" value="tijiao"/>-->
 
       <el-row class="row-marg-lf" style="margin-bottom: 10px">
         <el-col :span="20">
-          <h4 style="color: #8c939d"> id:</h4>
-          <input type="text" name="advId" :value="contentObj.advId"></input>
-          <!--          <el-input v-model="contentObj.url" placeholder="请输入广告url" clearable maxlength="100"-->
-          <!--                    show-word-limit></el-input>-->
+          <h4 style="color: #8c939d"> id: {{contentObj.advId}}</h4>
         </el-col>
         <el-col :span="4">
           <p></p>
@@ -20,10 +17,10 @@
       </el-row>
       <el-row class="row-marg-lf" style="margin-bottom: 10px">
         <el-col :span="20">
-          <h4 style="color: #8c939d"> 选择广告url:</h4>
-         <input type="text" name="url" :value="contentObj.url"></input>
-<!--          <el-input v-model="contentObj.url" placeholder="请输入广告url" clearable maxlength="100"-->
-<!--                    show-word-limit></el-input>-->
+          <h4 style="color: #8c939d"> 输入广告url:</h4>
+          <!--         <el-input type="text" name="url" :value="contentObj.url"></el-input>-->
+          <el-input v-model="contentObj.url" placeholder="请输入广告url" clearable maxlength="100"
+                    show-word-limit></el-input>
         </el-col>
         <el-col :span="4">
           <p></p>
@@ -31,18 +28,24 @@
       </el-row>
       <el-row class="row-marg-lf">
         <el-col :span="20">
-          <input type="file" name="file"/>
-          <!--        <el-upload-->
-          <!--          class="upload-demo"-->
-          <!--          ref="upload"-->
-          <!--          action="https://jsonplaceholder.typicode.com/posts/"-->
-          <!--          :on-change="fileChange()"-->
-          <!--          :file-list="fileList"-->
-          <!--          :auto-upload="false">-->
-          <!--          <el-button slot="trigger" size="small" type="primary">选取文件</el-button>-->
-          <!--          <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>-->
-          <!--          <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
-          <!--        </el-upload>-->
+          <el-upload
+            :action="'http://localhost:8080/onlineBookStore/' + 'upload/uploadFileToTem'"
+            :data="UploadData"
+            list-type="picture-card"
+            :on-preview="onPreview"
+            :on-remove="onRemove"
+            :on-success="onSuccess"
+            :on-change="onChange"
+            :before-upload="beforeUpload"
+            :file-list="ruleForm.head"
+            :limit='1'
+            :on-exceed="handleExceed"
+          >
+            <i class="el-icon-plus"></i>
+          </el-upload>
+<!--          <el-dialog :visible.sync="dialogVisible">-->
+<!--            <img width="148px" src="" alt="" style="background:red;height:148px;width:148px;" />-->
+<!--          </el-dialog>-->
         </el-col>
         <el-col :span="4">
           <p></p>
@@ -59,14 +62,14 @@
       </el-row>
       <el-row class="row-marg-lf" style="margin-top: 20px">
         <el-col :span="20">
-          <input type="radio" name="location" value="carousel">carousel
-          <input type="radio" name="location" value="middle">middle
-          <input type="radio" name="location" value="tail" >tail
-<!--          <el-radio-group :value="contentObj.location" size="medium " name="location">-->
-<!--            <el-radio-button label="carousel"></el-radio-button>-->
-<!--            <el-radio-button label="middle"></el-radio-button>-->
-<!--            <el-radio-button label="tail"></el-radio-button>-->
-<!--          </el-radio-group>-->
+<!--          <input type="radio" name="location" value="carousel">carousel-->
+<!--          <input type="radio" name="location" value="middle">middle-->
+<!--          <input type="radio" name="location" value="tail">tail-->
+                    <el-radio-group v-model="contentObj.location " size="medium " >
+                      <el-radio-button :label="1">首图</el-radio-button>
+                      <el-radio-button :label="2">中间图</el-radio-button>
+                      <el-radio-button :label="3">尾部</el-radio-button>
+                    </el-radio-group>
         </el-col>
         <el-col :span="4">
           <p></p>
@@ -75,10 +78,10 @@
 
       <el-row class="row-marg-lf" style="margin-top: 20px">
         <el-col :span="24">
-          <input type="submit" v-if="isCreate" value="提交"/>
-          <input type="submit" v-if="isUpdate" value="更新"/>
-<!--          <el-button type="success" plain v-if="isCreate" >提交</el-button>-->
-<!--          <el-button type="success" plain v-if="isUpdate">更新</el-button>-->
+<!--          <input type="submit" v-if="isCreate" value="提交"/>-->
+<!--          <input type="submit" v-if="isUpdate" value="更新"/>-->
+                    <el-button type="success" plain v-if="isCreate" @click="update" >提交</el-button>
+                    <el-button type="success" plain v-if="isUpdate" @click="update">更新</el-button>
         </el-col>
       </el-row>
     </form>
@@ -88,7 +91,7 @@
 <script>
 
   export default {
-    name: "EditAnnoncementView",
+    name: "EditAdvertiseView",
     mounted() {
       this.initPage();
     },
@@ -100,24 +103,60 @@
         isCreate: true,
         contentObj: {
           advId: '', url: '', picUrl: '', lastMdfTime: '', location: ''
-        }
+        },
+
+
+        UploadData:{
+          dir:'',
+          multipartFile: ''
+        },
+
+        ruleForm: {
+          name: '',
+          region: '',
+          desc: '',
+          head: []
+        },
+
       }
 
     },
     methods: {
-      // commit() {
-      //   var url = "http://localhost:8080/onlineBookStore/announcement"
-      //   this.$http.post(
-      //     url,
-      //     this.contentObj
-      //   ).then((response) => {
-      //     console.log(response.data);
-      //     if (response.data == "success") {
-      //       this.$message.success('添加成功');
-      //
-      //     }
-      //   })
-      // },
+      onRemove(file) {
+        this.contentObj.picUrl = '';
+      },
+
+      onSuccess(res, file, fileList) {
+        this.contentObj.picUrl = res.data.url
+        console.log(this.contentObj)
+      },
+      onChange(file, fileList) {},
+      beforeUpload(file) {
+        const isJPG = file.type
+        this.UploadData.dir = 'advertise/pic'
+        this.UploadData.multipartFile = file
+        return isJPG
+      },
+      onPreview() {
+        this.dialogVisible = true
+      },
+
+      handleExceed(files, fileList) {
+        this.$message.warning(`当前限制选择 1 个文件`);
+      },
+      /* 图片上传 */
+      handleAvatarSuccess(res, file) {
+        this.imageUrl = URL.createObjectURL(file.raw)
+      },
+      beforeAvatarUpload(file) {
+        const isLt1M = file.size / 1024 / 1024 < 1
+
+        if (!isLt1M) {
+          this.$message.error('上传头像图片大小不能超过 1MB!')
+        }
+        return isLt1M
+      },
+
       initPage() {
 
         if (this.id > -1) {
@@ -135,32 +174,31 @@
           })
         }
       },
-      // update() {
-      //   console.log(this.contentObj.annoId)
-      //   var url = "http://localhost:8080/onlineBookStore/announcement/" + this.contentObj.annoId
-      //   this.$http.put(
-      //     url,
-      //     this.contentObj
-      //     // [{title:"中俄我",content:"aaaaa"},{title:"中我",content:"bbbbbbb"}]
-      //     // this.$qs.stringify(this.contentObj),
-      //     // {param:"中文"}
-      //   ).then((response) => {
-      //     console.log(response.data);
-      //     if (response.data == "success") {
-      //       this.$message.success('修改成功');
-      //     }
-      //
-      //   })
-      //
-      // },
+      update() {
+        console.log(this.contentObj)
+        var url = "http://localhost:8080/onlineBookStore/updateAdvertise"
+        this.$http.post(
+          url,
+          this.contentObj
+        ).then((response) => {
+          console.log(response.data);
+          if (response.data.code === 200) {
+            this.$message.success('修改成功');
+          }
+          if (response.data.code === 400) {
+            this.$message.error(response.data.msg);
+          }
+
+        })
+
+      },
       // fileChange(file){
       //   console.log(file)
       // }
 
 
     },
-    components: {
-    }
+    components: {}
   }
 </script>
 
